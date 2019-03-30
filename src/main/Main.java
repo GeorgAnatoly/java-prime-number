@@ -1,7 +1,10 @@
 package main;
 
+import stringformating.FormatString;
+import validation.NumberValidation;
 import validation.StringValidation;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public final class Main {
@@ -14,23 +17,38 @@ public final class Main {
 
         var stringValidation = new StringValidation();
 
-        do {
-            System.out.println("Generate the list of primes up to a number.");
-            System.out.println("Enter a number between 1 and 1000:");
+        System.out.println("Generate the list of primes up to a number.");
+        System.out.println("Enter a number between 1 and 1000:");
+
+        userInput = scanner.next();
+
+        while(stringValidation.isNotNumber(userInput)) {
+            System.out.println("Entered value may only be numerical.");
 
             userInput = scanner.next();
+        }
 
-        }while (!stringValidation.isNumber(userInput));
+        var numberValidation = new NumberValidation();
+        int userNumber = Integer.valueOf(userInput);
 
-        var userNumber = Integer.valueOf(userInput);
-
-        while(userNumber < 1 || userNumber > 1000){
+        while(numberValidation.isNotInRange(1, 1000, userNumber)){
             System.out.println("Number must be between 1 and 1000:");
             userInput = scanner.next();
 
             userNumber = Integer.valueOf(userInput);
         }
 
-        System.out.println(userInput);
+        var primeList = new ArrayList<Integer>();
+
+        for(var number = 1; number <= userNumber; ++number) {
+            if(numberValidation.isPrime(number))
+                primeList.add(number);
+        }
+
+        var formatString = new FormatString();
+
+        var output = formatString.numberSingleSpacePattern(primeList);
+
+        System.out.println(output);
     }
 }
