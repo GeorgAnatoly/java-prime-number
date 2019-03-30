@@ -16,3 +16,13 @@ Given an integer *n* print the series of primes through *n*.
   * User input must be 1000 >= *n* >= 1
   * Outputs a single line
   * Output has a single space separating digits
+
+###### Solution Description
+Using a unit-test driven approach I created atomic, uncoupled
+classes with a small number of methods in each class. The approach
+used was to ensure no temporal binding as well as ensuring a
+high degree of readability. Tests cover each constraint failure and
+pass point.
+
+#### Solution Author
+Blake Olinger - *sole author* - [email](mailto:finalyetifive@gmail.com)
