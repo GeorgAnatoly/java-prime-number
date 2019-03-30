@@ -9,11 +9,6 @@ import java.util.ArrayList;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class FormatStringTest {
-    /*
-     TODO not sure how to write the class or test
-     so that unit test validates only a digit, single space
-     pattern is maintained - use regex \d+\s
-    */
     @Test
     void returnTrueForNumArrayToNumberSingleSpaceStringPattern() {
         var array = new ArrayList<Integer>();
